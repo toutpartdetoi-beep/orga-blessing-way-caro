@@ -16,9 +16,7 @@
       --line: #ead7ca;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -132,64 +130,67 @@
 
     td {
       border-bottom: 1px solid #eee;
-      padding: 12px;
+      padding: 10px;
       vertical-align: top;
       background: white;
     }
 
-    tr:last-child td {
-      border-bottom: none;
-    }
+    tr:last-child td { border-bottom: none; }
 
-    .editable {
-      min-height: 45px;
+    input, textarea, select {
+      width: 100%;
       border: 1px dashed #e4c4b5;
       border-radius: 10px;
       padding: 8px;
       background: #fffdfb;
-      color: #777;
+      color: #4b3d42;
+      font-family: Georgia, serif;
+      font-size: .95rem;
     }
 
-    .grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    textarea {
+      min-height: 58px;
+      resize: vertical;
     }
 
-    .oracle-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-      gap: 14px;
-      margin-top: 20px;
+    input:focus, textarea:focus, select:focus {
+      outline: 2px solid rgba(217,140,140,.35);
+      background: white;
     }
 
-    .oracle-card {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px;
-      background: linear-gradient(to bottom right, #fffefb, #fff7f1);
+    .disabled-cell {
+      color: #9b8588;
+      font-style: italic;
+      text-align: center;
+      background: #fbf4ef;
     }
 
-    .oracle-card strong {
-      color: #6c4153;
+    button {
       display: block;
-      margin-bottom: 8px;
+      width: 100%;
+      margin-top: 30px;
+      padding: 18px;
+      border: none;
+      border-radius: 999px;
+      background: #6c4153;
+      color: white;
+      font-family: Georgia, serif;
+      font-size: 1.15rem;
+      cursor: pointer;
     }
 
-    .badge {
-      display: inline-block;
-      background: #eef2ea;
-      color: #586756;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: .8rem;
-      margin-bottom: 10px;
-    }
+    button:hover { background: #543241; }
 
     footer {
       text-align: center;
       padding: 40px 20px 70px;
       color: #7d6568;
+    }
+
+    @media (max-width: 800px) {
+      table { font-size: .9rem; }
+      th, td { padding: 8px; }
+      .container { padding: 12px; }
     }
   </style>
 </head>
@@ -229,13 +230,21 @@
 
 <div class="container">
 
+<form action="https://formspree.io/f/mnjrwjoq" method="POST">
+
+  <section class="card">
+    <h2>La personne qui complète</h2>
+    <p class="soft">Cela permet de savoir qui a envoyé cette contribution.</p>
+    <label>Ton prénom</label>
+    <input type="text" name="prenom_participante" required>
+  </section>
+
   <section class="card">
     <h2>Arrivées & départs</h2>
-
     <table>
       <thead>
         <tr>
-          <th>Prénom\(s\)</th>
+          <th>Prénom(s)</th>
           <th>Arrivée prévue</th>
           <th>Départ prévu</th>
           <th>Dodo sur place ?</th>
@@ -244,11 +253,11 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="editable">Ajouter...</div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
+          <td><textarea name="arrivees_prenoms"></textarea></td>
+          <td><textarea name="arrivees_arrivee"></textarea></td>
+          <td><textarea name="arrivees_depart"></textarea></td>
+          <td><textarea name="arrivees_dodo"></textarea></td>
+          <td><textarea name="arrivees_remarques"></textarea></td>
         </tr>
       </tbody>
     </table>
@@ -256,41 +265,37 @@
 
   <section class="card">
     <h2>Liste de matériel à répartir</h2>
-
     <p class="soft">
       Liste non exhaustive : elle sert surtout à se donner une idée, à voir ce que nous avons déjà et ce que chacune peut apporter simplement.
     </p>
-
     <table>
       <thead>
         <tr>
           <th>Élément</th>
           <th>Idées de matériel</th>
-          <th>Qui peut apporter ?<br><span style="font-size:.8rem;font-weight:normal;">(plusieurs prénoms possibles)</span></th>
+          <th>Qui peut apporter ?<br><span style="font-size:.8rem;font-weight:normal;">plusieurs prénoms possibles</span></th>
           <th>Remarques</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>Cabane de tissus</strong></td><td>Voiles, draps, coussins, tapis, plaids, lanternes, guirlandes</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td><strong>Autel</strong></td><td>Tissu, bougies, fleurs, pierres, objets symboliques, bol, coupelle</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td><strong>Décoration des arbres</strong></td><td>Rubans, fils, fleurs, petits mots, clochettes, tissus légers</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td><strong>Couronne</strong></td><td>Fleurs fraîches, feuillage, rubans, fil floral, petits ciseaux</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td><strong>Rituel de l’eau</strong></td><td>Bassines, pétales de rose, fleurs, senteurs, plantes</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td><strong>Massages & tressage</strong></td><td>Huiles, tissus, peignes, élastiques</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td><strong>Beauté sacrée</strong></td><td>Pigments, argile, maquillage naturel, pinceaux</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td><strong>Oracle</strong></td><td>Pochon, jolie boîte</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td><strong>Feu du soir</strong></td><td>Tambours, lanternes, instruments, couvertures, papiers rituels</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td><strong>Cabane de tissus</strong></td><td>Voiles, draps, coussins, tapis, plaids, lanternes, guirlandes</td><td><textarea name="materiel_cabane_qui"></textarea></td><td><textarea name="materiel_cabane_remarques"></textarea></td></tr>
+        <tr><td><strong>Autel</strong></td><td>Tissu, bougies, fleurs, pierres, objets symboliques, bol, coupelle</td><td><textarea name="materiel_autel_qui"></textarea></td><td><textarea name="materiel_autel_remarques"></textarea></td></tr>
+        <tr><td><strong>Décoration des arbres</strong></td><td>Rubans, fils, fleurs, petits mots, clochettes, tissus légers</td><td><textarea name="materiel_arbres_qui"></textarea></td><td><textarea name="materiel_arbres_remarques"></textarea></td></tr>
+        <tr><td><strong>Couronne</strong></td><td>Fleurs fraîches, feuillage, rubans, fil floral, petits ciseaux</td><td><textarea name="materiel_couronne_qui"></textarea></td><td><textarea name="materiel_couronne_remarques"></textarea></td></tr>
+        <tr><td><strong>Rituel de l’eau</strong></td><td>Bassines, pétales de rose, fleurs, senteurs, plantes</td><td><textarea name="materiel_eau_qui"></textarea></td><td><textarea name="materiel_eau_remarques"></textarea></td></tr>
+        <tr><td><strong>Massages & tressage</strong></td><td>Huiles, tissus, peignes, élastiques</td><td><textarea name="materiel_massages_qui"></textarea></td><td><textarea name="materiel_massages_remarques"></textarea></td></tr>
+        <tr><td><strong>Beauté sacrée</strong></td><td>Pigments, argile, maquillage naturel, pinceaux</td><td><textarea name="materiel_beaute_qui"></textarea></td><td><textarea name="materiel_beaute_remarques"></textarea></td></tr>
+        <tr><td><strong>Oracle</strong></td><td>Pochon, jolie boîte</td><td><textarea name="materiel_oracle_qui"></textarea></td><td><textarea name="materiel_oracle_remarques"></textarea></td></tr>
+        <tr><td><strong>Feu du soir</strong></td><td>Tambours, lanternes, instruments, couvertures, papiers rituels</td><td><textarea name="materiel_feu_qui"></textarea></td><td><textarea name="materiel_feu_remarques"></textarea></td></tr>
       </tbody>
     </table>
   </section>
 
   <section class="card">
     <h2>Missions par rituel</h2>
-
     <p class="soft">
       Ici, “animation du temps” signifie : qui a envie de guider, lancer ou soutenir ce moment précis. Cela ne veut pas dire gérer toute l’organisation du rituel.
     </p>
-
     <table>
       <thead>
         <tr>
@@ -301,92 +306,30 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>Réveil en silence</strong></td>
-          <td><div class="editable"></div></td>
-          <td class="soft">—</td>
-          <td><div class="editable"></div></td>
-        </tr>
-
-        <tr>
-          <td><strong>Petit-déjeuner partagé</strong></td>
-          <td><div class="editable"></div></td>
-          <td class="soft">—</td>
-          <td><div class="editable"></div></td>
-        </tr>
-
-        <tr>
-          <td><strong>Installation cabane de tissus · autel · décoration des arbres</strong></td>
-          <td><div class="editable"></div></td>
-          <td class="soft">—</td>
-          <td><div class="editable"></div></td>
-        </tr>
-
-        <tr>
-          <td><strong>Haie de vie</strong><br>
-          Chacune raconte sa rencontre avec Caroline</td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-        </tr>
-
-        <tr>
-          <td><strong>Cercle de parole</strong></td>
-          <td><div class="editable"></div></td>
-          <td class="soft">—</td>
-          <td><div class="editable"></div></td>
-        </tr>
-
-        <tr>
-          <td><strong>Repas partagé</strong></td>
-          <td><div class="editable"></div></td>
-          <td class="soft">—</td>
-          <td><div class="editable"></div></td>
-        </tr>
-
-        <tr>
-          <td><strong>Rituel de l’eau & fleurs</strong></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-        </tr>
-
-        <tr>
-          <td><strong>Massages · tressage · soins</strong></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-        </tr>
-
-        <tr>
-          <td><strong>Beauté sacrée</strong></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-        </tr>
-
-        <tr>
-          <td><strong>Feu · oracle · danse · clôture</strong></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-        </tr>
+        <tr><td><strong>Réveil en silence</strong></td><td><textarea name="mission_reveil_animation"></textarea></td><td class="disabled-cell">—</td><td><textarea name="mission_reveil_notes"></textarea></td></tr>
+        <tr><td><strong>Petit-déjeuner partagé</strong></td><td><textarea name="mission_petit_dejeuner_animation"></textarea></td><td class="disabled-cell">—</td><td><textarea name="mission_petit_dejeuner_notes"></textarea></td></tr>
+        <tr><td><strong>Installation cabane de tissus · autel · décoration des arbres</strong></td><td><textarea name="mission_installation_animation"></textarea></td><td class="disabled-cell">—</td><td><textarea name="mission_installation_notes"></textarea></td></tr>
+        <tr><td><strong>Haie de vie</strong><br>Chacune raconte sa rencontre avec Caroline</td><td><textarea name="mission_haie_animation"></textarea></td><td><textarea name="mission_haie_chant"></textarea></td><td><textarea name="mission_haie_notes"></textarea></td></tr>
+        <tr><td><strong>Cercle de parole</strong></td><td><textarea name="mission_cercle_animation"></textarea></td><td class="disabled-cell">—</td><td><textarea name="mission_cercle_notes"></textarea></td></tr>
+        <tr><td><strong>Repas partagé</strong></td><td><textarea name="mission_repas_animation"></textarea></td><td class="disabled-cell">—</td><td><textarea name="mission_repas_notes"></textarea></td></tr>
+        <tr><td><strong>Rituel de l’eau & fleurs</strong></td><td><textarea name="mission_eau_animation"></textarea></td><td><textarea name="mission_eau_chant"></textarea></td><td><textarea name="mission_eau_notes"></textarea></td></tr>
+        <tr><td><strong>Massages · tressage · soins</strong></td><td><textarea name="mission_massages_animation"></textarea></td><td><textarea name="mission_massages_chant"></textarea></td><td><textarea name="mission_massages_notes"></textarea></td></tr>
+        <tr><td><strong>Beauté sacrée</strong></td><td><textarea name="mission_beaute_animation"></textarea></td><td><textarea name="mission_beaute_chant"></textarea></td><td><textarea name="mission_beaute_notes"></textarea></td></tr>
+        <tr><td><strong>Feu · oracle · danse · clôture</strong></td><td><textarea name="mission_feu_animation"></textarea></td><td><textarea name="mission_feu_chant"></textarea></td><td><textarea name="mission_feu_notes"></textarea></td></tr>
       </tbody>
     </table>
   </section>
 
   <section class="card">
     <h2>Repas partagé</h2>
-
     <p class="soft">
       Chacune peut apporter un plat sucré ou salé pour le repas du midi ou le feu du soir.
       Pour le reste, nous utiliserons les couverts et la vaisselle de chez Caro.
     </p>
-
     <table>
       <thead>
         <tr>
-          <th>Prénom\(s\)</th>
+          <th>Prénom(s)</th>
           <th>Plat apporté</th>
           <th>Midi ou soir ?</th>
           <th>Allergènes / remarques</th>
@@ -394,10 +337,10 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
-          <td><div class="editable"></div></td>
+          <td><textarea name="repas_prenoms"></textarea></td>
+          <td><textarea name="repas_plat"></textarea></td>
+          <td><textarea name="repas_midi_soir"></textarea></td>
+          <td><textarea name="repas_allergenes"></textarea></td>
         </tr>
       </tbody>
     </table>
@@ -405,12 +348,10 @@
 
   <section class="card">
     <h2>Oracle des 49 cartes</h2>
-
     <p class="soft">
       L’oracle sera préparé en amont.
       Chaque femme peut choisir une ou plusieurs cartes : écrire le texte, réaliser le dessin, ou les deux.
     </p>
-
     <table>
       <thead>
         <tr>
@@ -419,62 +360,66 @@
           <th>Carte</th>
           <th>Texte</th>
           <th>Dessin</th>
-          <th>Prénom\(s\)</th>
+          <th>Prénom(s)</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td>Femmes de Terre</td><td>La Gardienne du feu</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>2</td><td>Femmes de Terre</td><td>La Jardinière</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>3</td><td>Femmes de Terre</td><td>La Femme-Montagne</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>4</td><td>Femmes de Terre</td><td>Celle qui nourrit</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>5</td><td>Femmes de Terre</td><td>La Tisseuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>6</td><td>Femmes de Terre</td><td>La Porteuse d’eau</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>7</td><td>Femmes de Terre</td><td>La Femme-Arbre</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>8</td><td>Femmes d’Eau</td><td>La Nageuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>9</td><td>Femmes d’Eau</td><td>La Femme-Lune</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>10</td><td>Femmes d’Eau</td><td>Celle qui pleure sans honte</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>11</td><td>Femmes d’Eau</td><td>La Sirène</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>12</td><td>Femmes d’Eau</td><td>La Guérisseuse des eaux</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>13</td><td>Femmes d’Eau</td><td>La Source</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>14</td><td>Femmes d’Eau</td><td>La Femme-Rivière</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>15</td><td>Femmes de Feu</td><td>La Danseuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>16</td><td>Femmes de Feu</td><td>La Femme-Volcan</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>17</td><td>Femmes de Feu</td><td>La Guerrière tendre</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>18</td><td>Femmes de Feu</td><td>Celle qui ose dire non</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>19</td><td>Femmes de Feu</td><td>La Porte-Flamme</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>20</td><td>Femmes de Feu</td><td>La Braise</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>21</td><td>Femmes de Feu</td><td>Le Phénix</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>22</td><td>Femmes d’Air</td><td>La Chanteuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>23</td><td>Femmes d’Air</td><td>Celle qui murmure au vent</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>24</td><td>Femmes d’Air</td><td>La Messagère</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>25</td><td>Femmes d’Air</td><td>La Conteuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>26</td><td>Femmes d’Air</td><td>La Femme-Oiseau</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>27</td><td>Femmes d’Air</td><td>La Respiration</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>28</td><td>Femmes d’Air</td><td>La Veilleuse de l’aube</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>29</td><td>Femmes de l’Invisible</td><td>La Femme-Louve</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>30</td><td>Femmes de l’Invisible</td><td>La Passeuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>31</td><td>Femmes de l’Invisible</td><td>Celle qui voit dans la nuit</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>32</td><td>Femmes de l’Invisible</td><td>La Gardienne des rêves</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>33</td><td>Femmes de l’Invisible</td><td>La Femme-Oracle</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>34</td><td>Femmes de l’Invisible</td><td>La Tisseuse d’étoiles</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>35</td><td>Femmes de l’Invisible</td><td>La Femme-Caverne</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>36</td><td>Femmes du Cercle</td><td>Celle qui reste</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>37</td><td>Femmes du Cercle</td><td>La Sœur de route</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>38</td><td>Femmes du Cercle</td><td>La Femme qui écoute</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>39</td><td>Femmes du Cercle</td><td>Les Mains ouvertes</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>40</td><td>Femmes du Cercle</td><td>Celle qui veille pendant la nuit</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>41</td><td>Femmes du Cercle</td><td>La Femme-Rivage</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>42</td><td>Femmes du Cercle</td><td>Le Cercle</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>43</td><td>Femme souveraine</td><td>La Couronnée</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>44</td><td>Femme souveraine</td><td>Celle qui se choisit</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>45</td><td>Femme souveraine</td><td>La Femme libre</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>46</td><td>Femme souveraine</td><td>La Femme solaire</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>47</td><td>Femme souveraine</td><td>Celle qui rayonne sans s’excuser</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>48</td><td>Femme souveraine</td><td>La Femme entière</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
-        <tr><td>49</td><td>Femme souveraine</td><td>Le Cœur d’or</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>1</td><td>Femmes de Terre</td><td>La Gardienne du feu</td><td><textarea name="oracle_1_texte"></textarea></td><td><textarea name="oracle_1_dessin"></textarea></td><td><textarea name="oracle_1_prenoms"></textarea></td></tr>
+        <tr><td>2</td><td>Femmes de Terre</td><td>La Jardinière</td><td><textarea name="oracle_2_texte"></textarea></td><td><textarea name="oracle_2_dessin"></textarea></td><td><textarea name="oracle_2_prenoms"></textarea></td></tr>
+        <tr><td>3</td><td>Femmes de Terre</td><td>La Femme-Montagne</td><td><textarea name="oracle_3_texte"></textarea></td><td><textarea name="oracle_3_dessin"></textarea></td><td><textarea name="oracle_3_prenoms"></textarea></td></tr>
+        <tr><td>4</td><td>Femmes de Terre</td><td>Celle qui nourrit</td><td><textarea name="oracle_4_texte"></textarea></td><td><textarea name="oracle_4_dessin"></textarea></td><td><textarea name="oracle_4_prenoms"></textarea></td></tr>
+        <tr><td>5</td><td>Femmes de Terre</td><td>La Tisseuse</td><td><textarea name="oracle_5_texte"></textarea></td><td><textarea name="oracle_5_dessin"></textarea></td><td><textarea name="oracle_5_prenoms"></textarea></td></tr>
+        <tr><td>6</td><td>Femmes de Terre</td><td>La Porteuse d’eau</td><td><textarea name="oracle_6_texte"></textarea></td><td><textarea name="oracle_6_dessin"></textarea></td><td><textarea name="oracle_6_prenoms"></textarea></td></tr>
+        <tr><td>7</td><td>Femmes de Terre</td><td>La Femme-Arbre</td><td><textarea name="oracle_7_texte"></textarea></td><td><textarea name="oracle_7_dessin"></textarea></td><td><textarea name="oracle_7_prenoms"></textarea></td></tr>
+        <tr><td>8</td><td>Femmes d’Eau</td><td>La Nageuse</td><td><textarea name="oracle_8_texte"></textarea></td><td><textarea name="oracle_8_dessin"></textarea></td><td><textarea name="oracle_8_prenoms"></textarea></td></tr>
+        <tr><td>9</td><td>Femmes d’Eau</td><td>La Femme-Lune</td><td><textarea name="oracle_9_texte"></textarea></td><td><textarea name="oracle_9_dessin"></textarea></td><td><textarea name="oracle_9_prenoms"></textarea></td></tr>
+        <tr><td>10</td><td>Femmes d’Eau</td><td>Celle qui pleure sans honte</td><td><textarea name="oracle_10_texte"></textarea></td><td><textarea name="oracle_10_dessin"></textarea></td><td><textarea name="oracle_10_prenoms"></textarea></td></tr>
+        <tr><td>11</td><td>Femmes d’Eau</td><td>La Sirène</td><td><textarea name="oracle_11_texte"></textarea></td><td><textarea name="oracle_11_dessin"></textarea></td><td><textarea name="oracle_11_prenoms"></textarea></td></tr>
+        <tr><td>12</td><td>Femmes d’Eau</td><td>La Guérisseuse des eaux</td><td><textarea name="oracle_12_texte"></textarea></td><td><textarea name="oracle_12_dessin"></textarea></td><td><textarea name="oracle_12_prenoms"></textarea></td></tr>
+        <tr><td>13</td><td>Femmes d’Eau</td><td>La Source</td><td><textarea name="oracle_13_texte"></textarea></td><td><textarea name="oracle_13_dessin"></textarea></td><td><textarea name="oracle_13_prenoms"></textarea></td></tr>
+        <tr><td>14</td><td>Femmes d’Eau</td><td>La Femme-Rivière</td><td><textarea name="oracle_14_texte"></textarea></td><td><textarea name="oracle_14_dessin"></textarea></td><td><textarea name="oracle_14_prenoms"></textarea></td></tr>
+        <tr><td>15</td><td>Femmes de Feu</td><td>La Danseuse</td><td><textarea name="oracle_15_texte"></textarea></td><td><textarea name="oracle_15_dessin"></textarea></td><td><textarea name="oracle_15_prenoms"></textarea></td></tr>
+        <tr><td>16</td><td>Femmes de Feu</td><td>La Femme-Volcan</td><td><textarea name="oracle_16_texte"></textarea></td><td><textarea name="oracle_16_dessin"></textarea></td><td><textarea name="oracle_16_prenoms"></textarea></td></tr>
+        <tr><td>17</td><td>Femmes de Feu</td><td>La Guerrière tendre</td><td><textarea name="oracle_17_texte"></textarea></td><td><textarea name="oracle_17_dessin"></textarea></td><td><textarea name="oracle_17_prenoms"></textarea></td></tr>
+        <tr><td>18</td><td>Femmes de Feu</td><td>Celle qui ose dire non</td><td><textarea name="oracle_18_texte"></textarea></td><td><textarea name="oracle_18_dessin"></textarea></td><td><textarea name="oracle_18_prenoms"></textarea></td></tr>
+        <tr><td>19</td><td>Femmes de Feu</td><td>La Porte-Flamme</td><td><textarea name="oracle_19_texte"></textarea></td><td><textarea name="oracle_19_dessin"></textarea></td><td><textarea name="oracle_19_prenoms"></textarea></td></tr>
+        <tr><td>20</td><td>Femmes de Feu</td><td>La Braise</td><td><textarea name="oracle_20_texte"></textarea></td><td><textarea name="oracle_20_dessin"></textarea></td><td><textarea name="oracle_20_prenoms"></textarea></td></tr>
+        <tr><td>21</td><td>Femmes de Feu</td><td>Le Phénix</td><td><textarea name="oracle_21_texte"></textarea></td><td><textarea name="oracle_21_dessin"></textarea></td><td><textarea name="oracle_21_prenoms"></textarea></td></tr>
+        <tr><td>22</td><td>Femmes d’Air</td><td>La Chanteuse</td><td><textarea name="oracle_22_texte"></textarea></td><td><textarea name="oracle_22_dessin"></textarea></td><td><textarea name="oracle_22_prenoms"></textarea></td></tr>
+        <tr><td>23</td><td>Femmes d’Air</td><td>Celle qui murmure au vent</td><td><textarea name="oracle_23_texte"></textarea></td><td><textarea name="oracle_23_dessin"></textarea></td><td><textarea name="oracle_23_prenoms"></textarea></td></tr>
+        <tr><td>24</td><td>Femmes d’Air</td><td>La Messagère</td><td><textarea name="oracle_24_texte"></textarea></td><td><textarea name="oracle_24_dessin"></textarea></td><td><textarea name="oracle_24_prenoms"></textarea></td></tr>
+        <tr><td>25</td><td>Femmes d’Air</td><td>La Conteuse</td><td><textarea name="oracle_25_texte"></textarea></td><td><textarea name="oracle_25_dessin"></textarea></td><td><textarea name="oracle_25_prenoms"></textarea></td></tr>
+        <tr><td>26</td><td>Femmes d’Air</td><td>La Femme-Oiseau</td><td><textarea name="oracle_26_texte"></textarea></td><td><textarea name="oracle_26_dessin"></textarea></td><td><textarea name="oracle_26_prenoms"></textarea></td></tr>
+        <tr><td>27</td><td>Femmes d’Air</td><td>La Respiration</td><td><textarea name="oracle_27_texte"></textarea></td><td><textarea name="oracle_27_dessin"></textarea></td><td><textarea name="oracle_27_prenoms"></textarea></td></tr>
+        <tr><td>28</td><td>Femmes d’Air</td><td>La Veilleuse de l’aube</td><td><textarea name="oracle_28_texte"></textarea></td><td><textarea name="oracle_28_dessin"></textarea></td><td><textarea name="oracle_28_prenoms"></textarea></td></tr>
+        <tr><td>29</td><td>Femmes de l’Invisible</td><td>La Femme-Louve</td><td><textarea name="oracle_29_texte"></textarea></td><td><textarea name="oracle_29_dessin"></textarea></td><td><textarea name="oracle_29_prenoms"></textarea></td></tr>
+        <tr><td>30</td><td>Femmes de l’Invisible</td><td>La Passeuse</td><td><textarea name="oracle_30_texte"></textarea></td><td><textarea name="oracle_30_dessin"></textarea></td><td><textarea name="oracle_30_prenoms"></textarea></td></tr>
+        <tr><td>31</td><td>Femmes de l’Invisible</td><td>Celle qui voit dans la nuit</td><td><textarea name="oracle_31_texte"></textarea></td><td><textarea name="oracle_31_dessin"></textarea></td><td><textarea name="oracle_31_prenoms"></textarea></td></tr>
+        <tr><td>32</td><td>Femmes de l’Invisible</td><td>La Gardienne des rêves</td><td><textarea name="oracle_32_texte"></textarea></td><td><textarea name="oracle_32_dessin"></textarea></td><td><textarea name="oracle_32_prenoms"></textarea></td></tr>
+        <tr><td>33</td><td>Femmes de l’Invisible</td><td>La Femme-Oracle</td><td><textarea name="oracle_33_texte"></textarea></td><td><textarea name="oracle_33_dessin"></textarea></td><td><textarea name="oracle_33_prenoms"></textarea></td></tr>
+        <tr><td>34</td><td>Femmes de l’Invisible</td><td>La Tisseuse d’étoiles</td><td><textarea name="oracle_34_texte"></textarea></td><td><textarea name="oracle_34_dessin"></textarea></td><td><textarea name="oracle_34_prenoms"></textarea></td></tr>
+        <tr><td>35</td><td>Femmes de l’Invisible</td><td>La Femme-Caverne</td><td><textarea name="oracle_35_texte"></textarea></td><td><textarea name="oracle_35_dessin"></textarea></td><td><textarea name="oracle_35_prenoms"></textarea></td></tr>
+        <tr><td>36</td><td>Femmes du Cercle</td><td>Celle qui reste</td><td><textarea name="oracle_36_texte"></textarea></td><td><textarea name="oracle_36_dessin"></textarea></td><td><textarea name="oracle_36_prenoms"></textarea></td></tr>
+        <tr><td>37</td><td>Femmes du Cercle</td><td>La Sœur de route</td><td><textarea name="oracle_37_texte"></textarea></td><td><textarea name="oracle_37_dessin"></textarea></td><td><textarea name="oracle_37_prenoms"></textarea></td></tr>
+        <tr><td>38</td><td>Femmes du Cercle</td><td>La Femme qui écoute</td><td><textarea name="oracle_38_texte"></textarea></td><td><textarea name="oracle_38_dessin"></textarea></td><td><textarea name="oracle_38_prenoms"></textarea></td></tr>
+        <tr><td>39</td><td>Femmes du Cercle</td><td>Les Mains ouvertes</td><td><textarea name="oracle_39_texte"></textarea></td><td><textarea name="oracle_39_dessin"></textarea></td><td><textarea name="oracle_39_prenoms"></textarea></td></tr>
+        <tr><td>40</td><td>Femmes du Cercle</td><td>Celle qui veille pendant la nuit</td><td><textarea name="oracle_40_texte"></textarea></td><td><textarea name="oracle_40_dessin"></textarea></td><td><textarea name="oracle_40_prenoms"></textarea></td></tr>
+        <tr><td>41</td><td>Femmes du Cercle</td><td>La Femme-Rivage</td><td><textarea name="oracle_41_texte"></textarea></td><td><textarea name="oracle_41_dessin"></textarea></td><td><textarea name="oracle_41_prenoms"></textarea></td></tr>
+        <tr><td>42</td><td>Femmes du Cercle</td><td>Le Cercle</td><td><textarea name="oracle_42_texte"></textarea></td><td><textarea name="oracle_42_dessin"></textarea></td><td><textarea name="oracle_42_prenoms"></textarea></td></tr>
+        <tr><td>43</td><td>Femme souveraine</td><td>La Couronnée</td><td><textarea name="oracle_43_texte"></textarea></td><td><textarea name="oracle_43_dessin"></textarea></td><td><textarea name="oracle_43_prenoms"></textarea></td></tr>
+        <tr><td>44</td><td>Femme souveraine</td><td>Celle qui se choisit</td><td><textarea name="oracle_44_texte"></textarea></td><td><textarea name="oracle_44_dessin"></textarea></td><td><textarea name="oracle_44_prenoms"></textarea></td></tr>
+        <tr><td>45</td><td>Femme souveraine</td><td>La Femme libre</td><td><textarea name="oracle_45_texte"></textarea></td><td><textarea name="oracle_45_dessin"></textarea></td><td><textarea name="oracle_45_prenoms"></textarea></td></tr>
+        <tr><td>46</td><td>Femme souveraine</td><td>La Femme solaire</td><td><textarea name="oracle_46_texte"></textarea></td><td><textarea name="oracle_46_dessin"></textarea></td><td><textarea name="oracle_46_prenoms"></textarea></td></tr>
+        <tr><td>47</td><td>Femme souveraine</td><td>Celle qui rayonne sans s’excuser</td><td><textarea name="oracle_47_texte"></textarea></td><td><textarea name="oracle_47_dessin"></textarea></td><td><textarea name="oracle_47_prenoms"></textarea></td></tr>
+        <tr><td>48</td><td>Femme souveraine</td><td>La Femme entière</td><td><textarea name="oracle_48_texte"></textarea></td><td><textarea name="oracle_48_dessin"></textarea></td><td><textarea name="oracle_48_prenoms"></textarea></td></tr>
+        <tr><td>49</td><td>Femme souveraine</td><td>Le Cœur d’or</td><td><textarea name="oracle_49_texte"></textarea></td><td><textarea name="oracle_49_dessin"></textarea></td><td><textarea name="oracle_49_prenoms"></textarea></td></tr>
       </tbody>
     </table>
   </section>
+
+  <button type="submit">Envoyer mes contributions</button>
+
+</form>
 
 </div>
 
