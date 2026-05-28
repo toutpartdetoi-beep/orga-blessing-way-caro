@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blessing Way de Caroline — Organisation</title>
+  <style>
+    :root {
+      --bg: #fff9f4;
+      --paper: #fffefc;
+      --rose: #d98c8c;
+      --terracotta: #c97b63;
+      --sage: #8fa48a;
+      --gold: #d8b36a;
+      --ink: #4b3d42;
+      --line: #ead7ca;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #fff8f0, #f7efe7);
+      font-family: "Georgia", serif;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 60px 20px 40px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, rgba(217,140,140,.15), transparent 30%),
+        radial-gradient(circle at top right, rgba(216,179,106,.15), transparent 30%);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: #6c4153;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #7a5b61;
+    }
+
+    .intro {
+      max-width: 950px;
+      margin: 25px auto 0;
+      background: rgba(255,255,255,.75);
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+    }
+
+    .poster-programme {
+      max-width: 950px;
+      margin: 30px auto 0;
+      background: rgba(255,255,255,.82);
+      padding: 14px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(80,50,50,.08);
+    }
+
+    .poster-programme img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 25px;
+    }
+
+    .card {
+      background: var(--paper);
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(80,50,50,.05);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #6c4153;
+      font-size: 2rem;
+    }
+
+    h3 {
+      color: var(--terracotta);
+      margin-bottom: 10px;
+    }
+
+    .soft {
+      color: #7d6568;
+      font-style: italic;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: #f6e7dc;
+      margin: 5px;
+      font-size: .95rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      margin-top: 15px;
+    }
+
+    th {
+      background: #f3dfd4;
+      color: #5c3744;
+      text-align: left;
+      padding: 12px;
+      font-size: .95rem;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+      padding: 12px;
+      vertical-align: top;
+      background: white;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .editable {
+      min-height: 45px;
+      border: 1px dashed #e4c4b5;
+      border-radius: 10px;
+      padding: 8px;
+      background: #fffdfb;
+      color: #777;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .oracle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .oracle-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: linear-gradient(to bottom right, #fffefb, #fff7f1);
+    }
+
+    .oracle-card strong {
+      color: #6c4153;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #eef2ea;
+      color: #586756;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px 70px;
+      color: #7d6568;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Blessing Way de Caroline</h1>
+  <div class="subtitle">Organisation collective de la journée</div>
+
+  <div class="intro">
+    <p><strong>Chez Caro et Vincent uniquement.</strong></p>
+
+    <p class="soft">
+      Pas de pression. On fait simple. On fait avec ce qui est là.
+      L’idée n’est pas de “réussir un rituel parfait”, mais de créer ensemble un espace beau, vivant, doux et habité pour Caroline.
+    </p>
+
+    <p>
+      <span class="pill">🌿 Arrivée possible vendredi 13/06 au soir</span>
+      <span class="pill">🔥 Départ lundi matin</span>
+      <span class="pill">🌙 Oracle collectif de 49 cartes</span>
+      <span class="pill">🌹 Cabane de tissus & feu du soir</span>
+    </p>
+
+    <h3>Comment compléter le formulaire ?</h3>
+    <p>
+      Chaque femme pourra se positionner sur une ou plusieurs petites contributions :
+      arrivée/départ, matériel, plats, cartes oracle, chants, animation d’un temps du rituel…
+      L’idée est de répartir simplement ce que chacune a envie d’apporter, sans que cela devienne une charge.
+    </p>
+  </div>
+
+  <div class="poster-programme">
+    <img src="blessingwaycaroline.jpeg" alt="Programme illustré du Blessing Way de Caroline">
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="card">
+    <h2>Arrivées & départs</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Prénom\(s\)</th>
+          <th>Arrivée prévue</th>
+          <th>Départ prévu</th>
+          <th>Dodo sur place ?</th>
+          <th>Remarques</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="editable">Ajouter...</div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Liste de matériel à répartir</h2>
+
+    <p class="soft">
+      Liste non exhaustive : elle sert surtout à se donner une idée, à voir ce que nous avons déjà et ce que chacune peut apporter simplement.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Idées de matériel</th>
+          <th>Qui peut apporter ?<br><span style="font-size:.8rem;font-weight:normal;">(plusieurs prénoms possibles)</span></th>
+          <th>Remarques</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Cabane de tissus</strong></td><td>Voiles, draps, coussins, tapis, plaids, lanternes, guirlandes</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td><strong>Autel</strong></td><td>Tissu, bougies, fleurs, pierres, objets symboliques, bol, coupelle</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td><strong>Décoration des arbres</strong></td><td>Rubans, fils, fleurs, petits mots, clochettes, tissus légers</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td><strong>Couronne</strong></td><td>Fleurs fraîches, feuillage, rubans, fil floral, petits ciseaux</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td><strong>Rituel de l’eau</strong></td><td>Bassines, pétales de rose, fleurs, senteurs, plantes</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td><strong>Massages & tressage</strong></td><td>Huiles, tissus, peignes, élastiques</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td><strong>Beauté sacrée</strong></td><td>Pigments, argile, maquillage naturel, pinceaux</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td><strong>Oracle</strong></td><td>Pochon, jolie boîte</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td><strong>Feu du soir</strong></td><td>Tambours, lanternes, instruments, couvertures, papiers rituels</td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Missions par rituel</h2>
+
+    <p class="soft">
+      Ici, “animation du temps” signifie : qui a envie de guider, lancer ou soutenir ce moment précis. Cela ne veut pas dire gérer toute l’organisation du rituel.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rituel</th>
+          <th>Animation du temps</th>
+          <th>Quel chant ?</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Réveil en silence</strong></td>
+          <td><div class="editable"></div></td>
+          <td class="soft">—</td>
+          <td><div class="editable"></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>Petit-déjeuner partagé</strong></td>
+          <td><div class="editable"></div></td>
+          <td class="soft">—</td>
+          <td><div class="editable"></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>Installation cabane de tissus · autel · décoration des arbres</strong></td>
+          <td><div class="editable"></div></td>
+          <td class="soft">—</td>
+          <td><div class="editable"></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>Haie de vie</strong><br>
+          Chacune raconte sa rencontre avec Caroline</td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>Cercle de parole</strong></td>
+          <td><div class="editable"></div></td>
+          <td class="soft">—</td>
+          <td><div class="editable"></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>Repas partagé</strong></td>
+          <td><div class="editable"></div></td>
+          <td class="soft">—</td>
+          <td><div class="editable"></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>Rituel de l’eau & fleurs</strong></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>Massages · tressage · soins</strong></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>Beauté sacrée</strong></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>Feu · oracle · danse · clôture</strong></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Repas partagé</h2>
+
+    <p class="soft">
+      Chacune peut apporter un plat sucré ou salé pour le repas du midi ou le feu du soir.
+      Pour le reste, nous utiliserons les couverts et la vaisselle de chez Caro.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Prénom\(s\)</th>
+          <th>Plat apporté</th>
+          <th>Midi ou soir ?</th>
+          <th>Allergènes / remarques</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+          <td><div class="editable"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Oracle des 49 cartes</h2>
+
+    <p class="soft">
+      L’oracle sera préparé en amont.
+      Chaque femme peut choisir une ou plusieurs cartes : écrire le texte, réaliser le dessin, ou les deux.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Famille</th>
+          <th>Carte</th>
+          <th>Texte</th>
+          <th>Dessin</th>
+          <th>Prénom\(s\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Femmes de Terre</td><td>La Gardienne du feu</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>2</td><td>Femmes de Terre</td><td>La Jardinière</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>3</td><td>Femmes de Terre</td><td>La Femme-Montagne</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>4</td><td>Femmes de Terre</td><td>Celle qui nourrit</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>5</td><td>Femmes de Terre</td><td>La Tisseuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>6</td><td>Femmes de Terre</td><td>La Porteuse d’eau</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>7</td><td>Femmes de Terre</td><td>La Femme-Arbre</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>8</td><td>Femmes d’Eau</td><td>La Nageuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>9</td><td>Femmes d’Eau</td><td>La Femme-Lune</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>10</td><td>Femmes d’Eau</td><td>Celle qui pleure sans honte</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>11</td><td>Femmes d’Eau</td><td>La Sirène</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>12</td><td>Femmes d’Eau</td><td>La Guérisseuse des eaux</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>13</td><td>Femmes d’Eau</td><td>La Source</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>14</td><td>Femmes d’Eau</td><td>La Femme-Rivière</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>15</td><td>Femmes de Feu</td><td>La Danseuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>16</td><td>Femmes de Feu</td><td>La Femme-Volcan</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>17</td><td>Femmes de Feu</td><td>La Guerrière tendre</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>18</td><td>Femmes de Feu</td><td>Celle qui ose dire non</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>19</td><td>Femmes de Feu</td><td>La Porte-Flamme</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>20</td><td>Femmes de Feu</td><td>La Braise</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>21</td><td>Femmes de Feu</td><td>Le Phénix</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>22</td><td>Femmes d’Air</td><td>La Chanteuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>23</td><td>Femmes d’Air</td><td>Celle qui murmure au vent</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>24</td><td>Femmes d’Air</td><td>La Messagère</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>25</td><td>Femmes d’Air</td><td>La Conteuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>26</td><td>Femmes d’Air</td><td>La Femme-Oiseau</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>27</td><td>Femmes d’Air</td><td>La Respiration</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>28</td><td>Femmes d’Air</td><td>La Veilleuse de l’aube</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>29</td><td>Femmes de l’Invisible</td><td>La Femme-Louve</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>30</td><td>Femmes de l’Invisible</td><td>La Passeuse</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>31</td><td>Femmes de l’Invisible</td><td>Celle qui voit dans la nuit</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>32</td><td>Femmes de l’Invisible</td><td>La Gardienne des rêves</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>33</td><td>Femmes de l’Invisible</td><td>La Femme-Oracle</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>34</td><td>Femmes de l’Invisible</td><td>La Tisseuse d’étoiles</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>35</td><td>Femmes de l’Invisible</td><td>La Femme-Caverne</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>36</td><td>Femmes du Cercle</td><td>Celle qui reste</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>37</td><td>Femmes du Cercle</td><td>La Sœur de route</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>38</td><td>Femmes du Cercle</td><td>La Femme qui écoute</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>39</td><td>Femmes du Cercle</td><td>Les Mains ouvertes</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>40</td><td>Femmes du Cercle</td><td>Celle qui veille pendant la nuit</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>41</td><td>Femmes du Cercle</td><td>La Femme-Rivage</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>42</td><td>Femmes du Cercle</td><td>Le Cercle</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>43</td><td>Femme souveraine</td><td>La Couronnée</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>44</td><td>Femme souveraine</td><td>Celle qui se choisit</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>45</td><td>Femme souveraine</td><td>La Femme libre</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>46</td><td>Femme souveraine</td><td>La Femme solaire</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>47</td><td>Femme souveraine</td><td>Celle qui rayonne sans s’excuser</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>48</td><td>Femme souveraine</td><td>La Femme entière</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+        <tr><td>49</td><td>Femme souveraine</td><td>Le Cœur d’or</td><td><div class="editable"></div></td><td><div class="editable"></div></td><td><div class="editable"></div></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<footer>
+  🌹 Une journée pour célébrer Caroline, la sororité, le vivant et les passages 🌙
+</footer>
+
+</body>
+</html>
